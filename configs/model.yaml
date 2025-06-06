@@ -1,0 +1,31 @@
+models:
+  least_squares:
+    module: model.least_squares
+    function: estimate_positions_least_squares
+  taylor:
+    module: model.taylor
+    function: estimate_positions_taylor
+  chan:
+    module: model.chan
+    function: estimate_positions_chan
+  fang:
+    module: model.fang
+    function: estimate_positions_fang
+  particle_filter:
+    module: model.particle_filter
+    function: estimate_positions_pf
+
+defaults:
+  dimension: 2
+  space_x: 20
+  space_y: 20
+  space_z: 5
+
+  num_targets: 10
+
+  tdoa_noise_std: 1.0
+  nlos_bias_mean: 1.0
+  nlos_bias_std: 0.5
+  multipath_delay_mean: 0.5
+  multipath_delay_std: 0.2
+  blockage_drop_prob: 0.2 
