@@ -28,14 +28,15 @@ UWB_TDOA_V1.0/
 ---
 
 ## ⚙️ Installation
+- Works with Python 3.7+ and standard libraries like NumPy, Matplotlib, SciPy.
+
+1. Clone the repository
 ```
-Clone the repository
-
 git clone https://github.com/power-operation/UWB_TDOA.git
+```
 
-
-Install dependencies
-
+2. Install dependencies
+```
 matplotlib==3.9.2 
 numpy==1.26.4 
 PyYAML==6.0.2 
@@ -117,7 +118,6 @@ You can add new models to the `model/` directory and register them in `model.yam
 
 ## 📌 Notes
 - Default random seed is fixed for reproducibility (`np.random.seed(42)`).
-- Works with Python 3.7+ and standard libraries like NumPy, Matplotlib, SciPy.
 
 ---
 
