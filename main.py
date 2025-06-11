@@ -15,8 +15,9 @@ def main():
     true_positions, tdoa_measurements, problem_mask = generate_simulated_data(
         enable_nlos=args.nlos,
         enable_multipath=args.multipath,
-        enable_blockage=args.blockage
-    )
+        enable_blockage=args.blockage,
+        trajectory_type=args.trajectory     # add the trajectory args
+)
 
     print("==> Preprocessing TDOA data...")
     if args.process:
@@ -29,7 +30,7 @@ def main():
     estimated_positions = estimate_positions(processed_tdoa)
 
     print("==> Evaluating results...")
-    metrics, per_point_error = evaluate(estimated_positions, true_positions)
+    metrics, per_point_error, valid_mask = evaluate(estimated_positions, true_positions)
 
     print("Overall Metrics:")
     for k, v in metrics.items():

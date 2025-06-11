@@ -25,6 +25,9 @@ def parse_args():
     parser.add_argument('--multipath', type=lambda x: x.lower() == 'true', default=None, help='Enable multipath (true/false)')
     parser.add_argument('--blockage', type=lambda x: x.lower() == 'true', default=None, help='Enable blockage (true/false)')
     parser.add_argument('--process', type=lambda x: x.lower() == 'true', default=True, help='Enable preprocessing (true/false)')
+    # added trajectory
+    parser.add_argument('--trajectory', default='line', choices=['line', 'circle', 'sinusoid', 'random'], 
+                    help='Trajectory type for target movement')
     return parser.parse_args()
 
 # Load YAML configuration

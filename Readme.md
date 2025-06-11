@@ -27,6 +27,20 @@ UWB_TDOA_V1.0/
 
 ---
 
+## ⚙️ Installation
+1. Clone the repository
+git clone https://github.com/power-operation/UWB_TDOA.git
+
+2. Install dependencies
+matplotlib==3.9.2
+numpy==1.26.4
+PyYAML==6.0.2
+scikit-learn==1.5.2
+scipy==1.13.1
+...
+
+---
+
 ## 🚀 How to Run
 
 ```bash
@@ -36,8 +50,11 @@ python main.py --cfg configs/model.yaml \
                --nlos=true \
                --multipath=false \
                --blockage=false \
-               --process=true
+               --process=true \
+               --trajectory=sinusoid
 ```
+
+---
 
 ### ✅ Example Output:
 ```
@@ -62,6 +79,7 @@ MAE: 0.379 meters
 | `--multipath`   | Whether to simulate multipath effects (`true` / `false`)                    |
 | `--blockage`    | Whether to simulate random signal drop/blockage (`true` / `false`)          |
 | `--process`     | Whether to enable interference-aware preprocessing (`true` / `false`)       |
+| `--trajectory`  | Set visualization trajectory: `line`, `circle`, `sinusoid`, `random`        |
 
 ---
 
