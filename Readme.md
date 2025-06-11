@@ -28,16 +28,21 @@ UWB_TDOA_V1.0/
 ---
 
 ## ⚙️ Installation
-1. Clone the repository
+```
+Clone the repository
+
 git clone https://github.com/power-operation/UWB_TDOA.git
 
-2. Install dependencies
-matplotlib==3.9.2
-numpy==1.26.4
-PyYAML==6.0.2
-scikit-learn==1.5.2
+
+Install dependencies
+
+matplotlib==3.9.2 
+numpy==1.26.4 
+PyYAML==6.0.2 
+scikit-learn==1.5.2 
 scipy==1.13.1
 ...
+```
 
 ---
 
