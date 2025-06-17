@@ -7,22 +7,25 @@
 ## 📁 Project Structure
 ```
 UWB_TDOA_V1.0/
-├── main.py                   # Main simulation entry point
-├── config.py                 # Global configuration parser and defaults
-├── datagenerator.py          # TDOA measurement generation with noise/interference
-├── dataprocess.py            # Interference-aware preprocessing logic
+├── main.py                           # Main simulation entry point
+├── config.py                         # Global configuration parser and defaults
+├── datagenerator.py                  # TDOA measurement generation with noise/interference
+├── dataprocess.py                    # Interference-aware preprocessing logic
 ├── configs/
-│   └── model.yaml            # Model configuration file (used for dynamic model loading)
+│   └── model.yaml                    # Model configuration file (used for dynamic model loading)
 ├── model/
-│   ├── __init__.py           # Model loader based on YAML mapping
-│   ├── least_squares.py      # Least Squares TDOA estimation
-│   ├── particle_filter.py    # Particle Filter estimation (optional)
-│   ├── fang.py               # Fang algorithm (optional)
-│   ├── chan.py               # Chan algorithm (optional)
-│   └── taylor.py             # Taylor series-based solver (optional)
-├── utils.py                  # Utility functions (e.g. distance, RMSE, MAE)
-├── evaluation.py             # Evaluation metrics (RMSE, MAE, per-point error)
-└── visualization.py          # 2D/3D visualization of estimated vs ground-truth positions
+│   ├── __init__.py                   # Model loader based on YAML mapping
+│   ├── least_squares.py              # Least Squares TDOA estimation
+│   ├── least_squares_with_clock.py   # Least squares with clock
+│   ├── particle_filter.py            # Particle Filter estimation (optional)
+│   ├── fang.py                       # Fang algorithm (optional)
+│   ├── chan.py                       # Chan algorithm (optional)
+│   └── taylor.py                     # Taylor series-based solver (optional)
+├── tests/
+│   └── test_least_squares.py         # Unit test of classes and functions in algorithms
+├── utils.py                          # Utility functions (e.g. distance, RMSE, MAE)
+├── evaluation.py                     # Evaluation metrics (RMSE, MAE, per-point error)
+└── visualization.py                  # 2D/3D visualization of estimated vs ground-truth positions
 ```
 
 ---
@@ -42,6 +45,7 @@ numpy==1.26.4
 PyYAML==6.0.2 
 scikit-learn==1.5.2 
 scipy==1.13.1
+pytest==8.4.0
 ...
 ```
 
@@ -58,6 +62,20 @@ python main.py --cfg configs/model.yaml \
                --blockage=false \
                --process=true \
                --trajectory=sinusoid
+```
+
+---
+
+## 🚀 How to Run Unit Test
+
+1. If you want test all:
+```bash
+pytest tests/
+```
+
+2. If you only want to test fixed module code such as least_squares.py:
+```bash
+pytest tests/ --target=least_squares
 ```
 
 ---

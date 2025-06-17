@@ -5,7 +5,8 @@ from dataprocess import preprocess_tdoa
 from evaluation import evaluate
 from visualization import plot_results
 from model import load_model
-from config import parse_args, load_yaml_config
+from config import parse_args, load_yaml_config, get_config
+
 
 def main():
     args = parse_args()

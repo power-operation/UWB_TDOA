@@ -1,17 +1,30 @@
 import numpy as np
 from scipy.interpolate import CubicSpline
 from config import (
-    SPACE_X, SPACE_Y, SPACE_Z, NUM_TARGETS, ANCHORS, TDOA_NOISE_STD,
-    NLOS_BIAS_MEAN, NLOS_BIAS_STD,
-    MULTIPATH_DELAY_MEAN, MULTIPATH_DELAY_STD,
-    BLOCKAGE_DROP_PROB
+    get_space, get_num_targets, get_anchors,
+    get_tdoa_noise_std, get_nlos_params,
+    get_multipath_params, get_blockage_prob
 )
+# from config import (
+#     SPACE_X, SPACE_Y, SPACE_Z, NUM_TARGETS, ANCHORS, TDOA_NOISE_STD,
+#     NLOS_BIAS_MEAN, NLOS_BIAS_STD,
+#     MULTIPATH_DELAY_MEAN, MULTIPATH_DELAY_STD,
+#     BLOCKAGE_DROP_PROB
+# )
 
 # def generate_targets(num_targets=NUM_TARGETS):
 #     if ANCHORS.shape[1] == 2:
 #         return np.random.uniform([0, 0], [SPACE_X, SPACE_Y], size=(num_targets, 2))
 #     else:
 #         return np.random.uniform([0, 0, 0], [SPACE_X, SPACE_Y, SPACE_Z], size=(num_targets, 3))
+
+SPACE_X, SPACE_Y, SPACE_Z = get_space()
+NUM_TARGETS = get_num_targets()
+ANCHORS = get_anchors()
+TDOA_NOISE_STD = get_tdoa_noise_std()
+NLOS_BIAS_MEAN, NLOS_BIAS_STD = get_nlos_params()
+MULTIPATH_DELAY_MEAN, MULTIPATH_DELAY_STD = get_multipath_params()
+BLOCKAGE_DROP_PROB = get_blockage_prob()
 
 def generate_trajectory(num_points=NUM_TARGETS, trajectory_type='line', dimension=2, speed=1.0):
     """

@@ -2,15 +2,23 @@ models:
   least_squares:
     module: model.least_squares
     function: estimate_positions_least_squares
+  
+  least_squares_with_clock:
+    module: model.least_squares_with_clock
+    function: estimate_positions_least_squares_with_clock
+
   taylor:
     module: model.taylor
     function: estimate_positions_taylor
+  
   chan:
     module: model.chan
     function: estimate_positions_chan
+
   fang:
     module: model.fang
     function: estimate_positions_fang
+
   particle_filter:
     module: model.particle_filter
     function: estimate_positions_pf
